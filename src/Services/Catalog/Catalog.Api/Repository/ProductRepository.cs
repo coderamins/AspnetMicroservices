@@ -22,8 +22,7 @@ namespace Catalog.Api.Repository
             await _context.Products.InsertOneAsync(product);
         }
 
-        public async Task<IEnumerable<Product>>
-        GetPeoductbyCategory(string category)
+        public async Task<IEnumerable<Product>> GetProductByCategory(string category)
         {
             FilterDefinition<Product> filter =
                 Builders<Product>.Filter.Eq(p => p.Category, category);
