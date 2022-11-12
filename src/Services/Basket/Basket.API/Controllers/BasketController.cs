@@ -19,14 +19,31 @@ namespace Basket.Api.Controllers
 
         public BasketController(IBasketRepository repository)
         {
-            _repository=repository ?? throw new ArgumentNullException(nameof(repository));
+            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
 
-        [HttpGet("{userName}",Name="GetBasket")]
-        [ProducesResponseType(typeof(ShoppingCart),(int)HttpStatusCode.OK]
-        public async Task<ActionResult<ShoppingCart>> GetBasket()
+        [HttpGet("{userName}", Name = "GetBasket")]
+        [ProducesResponseType(typeof(ShoppingCart), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<ShoppingCart>> GetBasket(string userName)
         {
-            return View("Error!");
+            var basket = await _repository.GetBasket(userName);
+            return Ok(basket ?? new ShoppingCart(userName));
         }
+
+        [HttpPost]
+        [ProducesResponseType(typeof(ShoppingCart), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<ShoppingCart>> UpdateBasket([FromBody] ShoppingCart basket)
+        {
+            return Ok(await _repository.UpdateBasket(basket));
+        }
+
+        [HttpDelete("{userName}",Name ="DeleteBasket")]
+        [ProducesResponseType(typeof(void), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<ShoppingCart>> DeleteBasket(string userName)
+        {
+            await _repository.DeleteBasket(userName);
+            return Ok();
+        }
+
     }
 }
