@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Discount.Grpc.Entities;
+using Discount.Api.Entities;
 
-namespace Discount.Grpc.Repositories
+namespace Discount.Api.Repositories
 {
     public interface IDiscountRepository
     {
