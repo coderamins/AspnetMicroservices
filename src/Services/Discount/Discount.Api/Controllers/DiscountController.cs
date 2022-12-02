@@ -1,17 +1,9 @@
 using System.Net;
-using System.Security.Cryptography.X509Certificates;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using Npgsql;
-using Dapper;
-using Discount.Api.Entities;
-using Discount.Api.Repositories;
+using Discount.Grpc.Entities;
+using Discount.Grpc.Repositories;
 
 namespace Discount.Api.Controllers
 {

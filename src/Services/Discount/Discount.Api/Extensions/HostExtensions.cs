@@ -22,7 +22,8 @@ namespace Discount.Api.Extensions
                 var configuration=services.GetRequiredService<IConfiguration>();
                 var logger=services.GetRequiredService<ILogger<TContext>>();
 
-                try{
+                try
+                {
                     logger.LogInformation("Migrating postgresql database");
 
                     using var connection=new NpgsqlConnection
@@ -40,11 +41,32 @@ namespace Discount.Api.Extensions
                     command.CommandText=@"CREATE TABLE Coupon(Id SERIAL PRIMARY KEY,
                                           ProductName VARCHAR(24) NOT NULL,
                                           Description TEXT,
-                                          Amount INT)";
+                                          Amount INT)";                    
                     
                     command.ExecuteNonQuery();
+
+                    command.CommandText="INSERT INTO Coupon (ProductName,Description,Amount)Values('IPhone X','IPhone Discount',150);";
+                    command.ExecuteNonQuery();
+
+                    command.CommandText="INSERT INTO Coupon (ProductName,Description,Amount)Values('Sumsung 10','Sumsung',150);";
+                    command.ExecuteNonQuery();
+                    
+                    logger.LogInformation("Migrated postgresql database.");
+
+                }
+                catch(NpgsqlException ex)
+                {
+                    logger.LogError(ex,"An error occured while migrating the postgresql");
+                    if(retryForavailablity<50)
+                    {
+                        retryForavailablity++;
+                        System.Threading.Thread.Sleep(2000);
+                        MigrateDatabase<TContext>(host,retryForavailablity);
+                    }
                 }
             }
+
+            return host;
         }
         
     }

@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Discount.Api.Entities;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
 using System.Data;
 using Dapper;
+using Discount.Grpc.Entities;
 
 namespace Discount.Api.Repositories
 {
