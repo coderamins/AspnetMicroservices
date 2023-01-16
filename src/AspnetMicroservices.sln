@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Discount", "Discount", "{EF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discount.Api", "Services\Discount\Discount.Api\Discount.Api.csproj", "{B6477539-095A-48D4-956D-21B48CCAFDC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discount.Grpc", "..\Discount.Grpc\Discount.Grpc.csproj", "{B1D73710-229B-4CFD-8EF4-5AEBB087B037}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discount.Grpc", "..\Discount.Grpc\Discount.Grpc.csproj", "{B1D73710-229B-4CFD-8EF4-5AEBB087B037}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

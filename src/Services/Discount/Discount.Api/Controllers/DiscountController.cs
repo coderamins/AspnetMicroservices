@@ -2,8 +2,8 @@ using System.Net;
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Discount.Grpc.Entities;
-using Discount.Grpc.Repositories;
+using Discount.Api.Entities;
+using Discount.Api.Repositories;
 
 namespace Discount.Api.Controllers
 {
