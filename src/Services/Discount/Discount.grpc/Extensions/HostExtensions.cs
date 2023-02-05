@@ -29,7 +29,7 @@ namespace Discount.Grpc.Extensions
                     using var connection=new NpgsqlConnection
                     (configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
     
-                    connection.Open();
+                    connection.Open();  
 
                     using var command=new NpgsqlCommand{
                         Connection=connection

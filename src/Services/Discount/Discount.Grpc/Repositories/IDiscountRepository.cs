@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Discount.Grpc.Entities;
 
-namespace Discount.Api.Repositories
+namespace Discount.Grpc.Repositories
 {
     public interface IDiscountRepository
     {

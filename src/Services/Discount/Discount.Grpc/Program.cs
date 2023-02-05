@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Discount.Grpc
+namespace Discount.grpc
 {
     public class Program
     {
